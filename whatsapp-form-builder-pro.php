@@ -34,6 +34,10 @@ $includes = array(
     'includes/shortcode.php',
     'includes/enqueue-assets.php',
     'includes/style.php', // optional wrapper (present for compatibility)
+    'includes/lead-db.php',
+    'includes/settings.php',
+    'includes/lead-handler.php',
+    'includes/admin-leads.php',
 );
 
 foreach ( $includes as $inc ) {
@@ -46,7 +50,7 @@ foreach ( $includes as $inc ) {
 }
 
 /**
- * Activation hook: create table for forms
+ * Activation hook: create table for forms and leads
  */
 function wafbp_activate() {
     global $wpdb;
@@ -65,6 +69,9 @@ function wafbp_activate() {
     dbDelta( $sql );
 
     add_option( 'wafbp_db_version', WAFBP_DB_VERSION );
+    
+    // Create leads table
+    wafbp_create_leads_table();
 }
 register_activation_hook( __FILE__, 'wafbp_activate' );
 

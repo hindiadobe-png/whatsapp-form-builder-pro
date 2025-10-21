@@ -120,6 +120,19 @@ function wafbp_shortcode_output( $atts ) {
                 </div>
             <?php endif; ?>
 
+            <?php
+            // Show opt-in checkbox if save_leads is enabled
+            $settings = wafbp_get_settings();
+            if ( $settings['save_leads'] ) :
+            ?>
+                <div class="wafbp-field-group" style="margin-bottom: 10px;">
+                    <label style="display: flex; align-items: center; font-size: <?php echo esc_attr( $font_size ); ?>px; color:<?php echo esc_attr( $input_text_color ); ?>;">
+                        <input type="checkbox" name="wafbp_opt_in" value="1" style="margin-<?php echo is_rtl() ? 'left' : 'right'; ?>: 8px;">
+                        <span><?php echo esc_html( $settings['opt_in_label'] ); ?></span>
+                    </label>
+                </div>
+            <?php endif; ?>
+
             <button type="submit" style="width:100%; padding:12px; background:<?php echo esc_attr( $btn_bg_color ); ?>; color:<?php echo esc_attr( $btn_text_color ); ?>; border:none; border-radius:<?php echo esc_attr( $border_radius ); ?>px; font-weight:600;"><?php echo esc_html( $button_text ); ?></button>
         </form>
     </div>

@@ -219,3 +219,53 @@ html[dir="rtl"] .small-text,
 html[dir="rtl"] .form-table select {
     /* text-align: right; If you want placeholder text to be right aligned */
 }
+
+/* Leads list table styles */
+.wafbp-lead-detail {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.wafbp-lead-detail h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.wafbp-lead-detail .form-table th {
+    width: 200px;
+    font-weight: 600;
+}
+
+.wafbp-lead-detail .form-table td {
+    word-break: break-word;
+}
+
+/* Leads filter form styles */
+.tablenav.top {
+    margin-bottom: 10px;
+}
+
+.tablenav .alignleft.actions select,
+.tablenav .alignleft.actions input[type="date"] {
+    margin-right: 5px;
+}
+
+.tablenav .alignleft.actions .button-primary {
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+/* Check column for bulk actions */
+.check-column {
+    width: 2.2em;
+    padding: 8px 0 0 0;
+    text-align: center;
+}
+
+.check-column input[type="checkbox"] {
+    margin: 0;
+}
