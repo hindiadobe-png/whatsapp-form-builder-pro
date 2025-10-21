@@ -1,0 +1,4 @@
+.wa-form { max-width: 400px; margin: 20px auto; display: flex; flex-direction: column; gap: 10px; }
+.wa-form input, .wa-form button { padding: 10px; font-size: 16px; }
+.wa-style-default button { background: green; color: white; border: none; cursor: pointer; }
+.wa-style-rounded button { background: green; color: white; border-radius: 30px; border: none; cursor: pointer; }

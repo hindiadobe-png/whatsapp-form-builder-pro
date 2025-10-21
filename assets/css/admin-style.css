@@ -1,0 +1,221 @@
+/*
+ * WhatsApp Form Builder Pro Admin Styles
+ * Updated for better color picker and button display
+ */
+
+.wrap h1 {
+    color: #2c3338;
+    font-size: 2em;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.wrap h2.title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    font-size: 1.6em;
+    color: #32373c;
+}
+
+.form-table th {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    vertical-align: middle;
+    width: 250px; /* Adjust width for labels */
+}
+
+.form-table td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.regular-text,
+.small-text,
+.form-table select {
+    max-width: 400px;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 0 0 transparent;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.regular-text:focus,
+.small-text:focus,
+.form-table select:focus {
+    border-color: #8c8f94;
+    box-shadow: 0 0 0 1px #8c8f94;
+    outline: none;
+}
+
+.description {
+    font-size: 0.85em;
+    color: #72777c;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+/* Enhanced Button Styles for admin */
+.button-primary,
+.button-secondary,
+.button-danger {
+    margin-top: 20px;
+    padding: 8px 20px;
+    height: auto;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.5;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 3px; /* Standard WordPress button border-radius */
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+.button-danger {
+    background: #dc3232;
+    color: #fff;
+    border-color: #dc3232;
+}
+.button-danger:hover {
+    background: #e25b5b;
+    border-color: #e25b5b;
+    color: #fff;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    min-width: 16px;
+    min-height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* WordPress Color Picker integration adjustments */
+/* Increased specificity and more robust styling for the color picker */
+.form-table .wp-picker-container {
+    display: flex; /* Use flexbox for better alignment of color picker components */
+    align-items: center; /* Vertically align items */
+    gap: 10px; /* Space between color swatch and input field */
+    width: auto; /* Allow container to size based on content */
+    max-width: 300px; /* Constrain its max width */
+}
+.form-table .wp-picker-container .wp-color-result.button {
+    height: 34px !important; /* Force height */
+    width: 34px !important; /* Force width */
+    min-width: 34px !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 32px !important; /* Center icon vertically */
+    border: 1px solid #c3c4c7 !important; /* Add a subtle border */
+    background: #f0f0f1 !important; /* Match WordPress admin background */
+}
+.form-table .wp-picker-container .wp-color-result.button:after {
+    height: 32px !important;
+    width: 32px !important;
+    line-height: 32px !important; /* Correct line-height for the icon */
+    font-size: 18px !important; /* Slightly larger icon */
+}
+.form-table .wp-picker-container .wp-picker-input-wrap {
+    flex-grow: 1; /* Allow input wrap to take available space */
+    display: flex; /* Use flex for input and select color button */
+    gap: 10px; /* Space between input and select color button */
+    align-items: center;
+}
+.form-table .wp-picker-container .wp-color-picker {
+    width: 90px !important; /* Adjusted fixed width for the color code input */
+    padding: 6px !important;
+    height: 34px !important; /* Match height with the color swatch button */
+    box-sizing: border-box !important;
+    border-radius: 4px !important;
+    border: 1px solid #c3c4c7 !important;
+}
+/* Ensure the "Select Color" button text is visible */
+.form-table .wp-picker-container .wp-picker-open + .wp-picker-input-wrap .button {
+    height: 34px !important; /* Match height with other elements */
+    padding: 0 10px !important;
+    line-height: 32px !important; /* Vertically center text */
+    margin-left: 0 !important; /* Remove any conflicting margin */
+}
+/* Specific adjustment for the clear button */
+.form-table .wp-picker-container .iris-picker-clear {
+    margin-left: 10px; /* Add some space if it's there */
+}
+
+
+.notice-success p, .notice-warning p, .notice-error p {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.notice-success code, .notice-warning code, .notice-error code {
+    background-color: #e6e6e6;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+/* Admin notice for WhatsApp phone number format */
+.wafbp-admin-notice {
+    background-color: #fff;
+    border-left: 4px solid #0073aa; /* WordPress info color */
+    padding: 12px;
+    margin: 20px 0;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+.wafbp-admin-notice p {
+    margin: 0;
+    color: #32373c;
+    line-height: 1.5;
+}
+.wafbp-admin-notice strong {
+    color: #0073aa;
+}
+
+/* Styles for the forms list table */
+.wp-list-table .column-actions {
+    width: 150px;
+    white-space: nowrap;
+}
+.wp-list-table .column-shortcode {
+    width: 250px;
+}
+.wp-list-table .wafbp-copy-shortcode-btn { /* Specific class for list table copy button */
+    margin-left: 10px;
+    height: 28px;
+    line-height: 26px;
+    font-size: 12px;
+    padding: 0 8px;
+}
+.wp-list-table .button-small {
+    padding: 0 8px;
+    line-height: 26px;
+    height: 28px;
+    font-size: 12px;
+}
+
+/* RTL support for admin pages */
+html[dir="rtl"] .wafbp-admin-notice {
+    border-left: none;
+    border-right: 4px solid #0073aa;
+}
+
+html[dir="rtl"] .form-table th {
+    text-align: right;
+}
+
+html[dir="rtl"] .form-table td {
+    text-align: left;
+}
+
+html[dir="rtl"] .regular-text,
+html[dir="rtl"] .small-text,
+html[dir="rtl"] .form-table select {
+    /* text-align: right; If you want placeholder text to be right aligned */
+}
