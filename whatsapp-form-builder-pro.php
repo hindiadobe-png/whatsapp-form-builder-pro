@@ -34,6 +34,10 @@ $includes = array(
     'includes/shortcode.php',
     'includes/enqueue-assets.php',
     'includes/style.php', // optional wrapper (present for compatibility)
+    'includes/webhooks.php',
+    'includes/lead-handler.php',
+    'includes/admin-webhooks.php',
+    'includes/settings.php',
 );
 
 foreach ( $includes as $inc ) {
@@ -65,6 +69,26 @@ function wafbp_activate() {
     dbDelta( $sql );
 
     add_option( 'wafbp_db_version', WAFBP_DB_VERSION );
+
+    // Create webhook tables
+    wafbp_create_webhook_tables();
+
+    // Create leads table
+    wafbp_create_leads_table();
+
+    // Set default options
+    if ( ! get_option( 'wafbp_save_leads_enabled' ) ) {
+        add_option( 'wafbp_save_leads_enabled', false );
+    }
+    if ( ! get_option( 'wafbp_webhook_async_enabled' ) ) {
+        add_option( 'wafbp_webhook_async_enabled', true );
+    }
+    if ( ! get_option( 'wafbp_webhook_max_attempts' ) ) {
+        add_option( 'wafbp_webhook_max_attempts', 4 );
+    }
+    if ( ! get_option( 'wafbp_webhook_retry_schedule' ) ) {
+        add_option( 'wafbp_webhook_retry_schedule', array( 60, 300, 1800, 7200 ) );
+    }
 }
 register_activation_hook( __FILE__, 'wafbp_activate' );
 

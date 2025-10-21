@@ -12,6 +12,12 @@ function wafbp_register_assets() {
     // Frontend
     wp_register_style( 'wafbp-frontend-style', WAFBP_URL . 'assets/css/style.css', array(), WAFBP_VERSION );
     wp_register_script( 'wafbp-frontend', WAFBP_URL . 'assets/js/frontend.js', array(), WAFBP_VERSION, true );
+
+    // Localize frontend script with AJAX data
+    wp_localize_script( 'wafbp-frontend', 'wafbp_ajax', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'nonce' => wp_create_nonce( 'wafbp_form_nonce' ),
+    ) );
 }
 add_action( 'init', 'wafbp_register_assets' );
 
