@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: WhatsApp Form Builder Pro
-Description: Create multiple, highly customizable WhatsApp contact forms with unique shortcodes. Supports RTL, Google Fonts, and comprehensive styling options.
-Version: 2.0
+Description: Create multiple, highly customizable WhatsApp contact forms with unique shortcodes. Supports RTL, Google Fonts, webhooks, and comprehensive styling options.
+Version: 2.1
 Author: Your Name (Oceanhub Agency)
 Author URI: https://example.com
 Text Domain: whatsapp-form-builder-pro
@@ -20,7 +20,7 @@ if ( ! defined( 'WAFBP_URL' ) ) {
     define( 'WAFBP_URL', plugin_dir_url( __FILE__ ) );
 }
 if ( ! defined( 'WAFBP_VERSION' ) ) {
-    define( 'WAFBP_VERSION', '2.0' );
+    define( 'WAFBP_VERSION', '2.1' );
 }
 if ( ! defined( 'WAFBP_DB_VERSION' ) ) {
     define( 'WAFBP_DB_VERSION', '1.0' );

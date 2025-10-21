@@ -97,6 +97,21 @@ function wafbp_webhooks_page() {
         $action = 'list';
     }
 
+    // Handle replay
+    if ( $action === 'replay' && $webhook_id && isset( $_GET['lead_id'] ) ) {
+        $lead_id = absint( $_GET['lead_id'] );
+        check_admin_referer( 'wafbp_replay_webhook_' . $webhook_id . '_' . $lead_id );
+        $result = wafbp_replay_webhook( $webhook_id, $lead_id );
+        
+        if ( is_wp_error( $result ) ) {
+            echo '<div class="notice notice-error is-dismissible"><p>' . esc_html( $result->get_error_message() ) . '</p></div>';
+        } else {
+            echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Webhook queued for replay.', 'whatsapp-form-builder-pro' ) . '</p></div>';
+        }
+        
+        $action = 'logs';
+    }
+
     // Display appropriate view
     if ( $action === 'add' || $action === 'edit' ) {
         wafbp_webhooks_edit_form( $webhook_id );
