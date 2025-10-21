@@ -13,11 +13,21 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 global $wpdb;
-$table = $wpdb->prefix . 'wafbp_forms';
+$forms_table = $wpdb->prefix . 'wafbp_forms';
+$leads_table = $wpdb->prefix . 'wafbp_leads';
 
-// DROP TABLE (this is destructive — kept because plugin stores forms)
+// DROP forms TABLE (this is destructive — kept because plugin stores forms)
 // If you prefer to keep data, comment out the DROP below.
-$wpdb->query( "DROP TABLE IF EXISTS {$table}" );
+$wpdb->query( "DROP TABLE IF EXISTS {$forms_table}" );
 
 // Remove DB version option
 delete_option( 'wafbp_db_version' );
+
+// Optionally drop leads table if setting enabled
+$settings = get_option( 'wafbp_settings', array() );
+if ( isset( $settings['delete_data_on_uninstall'] ) && $settings['delete_data_on_uninstall'] === true ) {
+    $wpdb->query( "DROP TABLE IF EXISTS {$leads_table}" );
+}
+
+// Remove settings
+delete_option( 'wafbp_settings' );
