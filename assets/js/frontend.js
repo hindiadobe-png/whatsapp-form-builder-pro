@@ -46,6 +46,32 @@
                     return;
                 }
 
+                // Save lead via AJAX if wafbp_ajax is defined
+                if (typeof wafbp_ajax !== 'undefined' && wafbp_ajax.ajax_url) {
+                    var formData = new FormData();
+                    formData.append('action', 'wafbp_save_lead');
+                    formData.append('nonce', wafbp_ajax.nonce);
+                    formData.append('form_id', formId);
+                    
+                    var leadData = {};
+                    if (name) leadData.name = name;
+                    if (phone) leadData.phone = phone;
+                    if (city) leadData.city = city;
+                    if (subject) leadData.subject = subject;
+                    if (message) leadData.message = message;
+                    
+                    for (var key in leadData) {
+                        formData.append('form_data[' + key + ']', leadData[key]);
+                    }
+
+                    fetch(wafbp_ajax.ajax_url, {
+                        method: 'POST',
+                        body: formData
+                    }).catch(function(error) {
+                        console.error('WAFBP: Failed to save lead', error);
+                    });
+                }
+
                 var link = 'https://wa.me/' + encodeURIComponent(whatsappNumber) + '?text=' + encodeURIComponent(fullMessage);
                 window.open(link, '_blank');
             });
